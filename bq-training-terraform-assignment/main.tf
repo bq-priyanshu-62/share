@@ -17,23 +17,23 @@ module "requester_vpc" {
 }
 
 module "accepter-instance" {
-  source            = "./modules/module_aws_instance"
-  ami               = var.ami_accepter_region  
-  instance_type     = var.instance_type
-  public_subnet_id  = module.accepter_vpc.public_subnet_id
-  name              = var.accepter_name_instance
-  parent_vpc_id     = module.accepter_vpc.vpc_id
-  region = var.accepter_region
+  source           = "./modules/module_aws_instance"
+  ami              = data.aws_ami.accepter_ami_ubuntu.id
+  instance_type    = var.instance_type
+  public_subnet_id = module.accepter_vpc.public_subnet_id
+  name             = var.accepter_name_instance
+  parent_vpc_id    = module.accepter_vpc.vpc_id
+  region           = var.accepter_region
 }
 
 module "requester-instance" {
-  source            = "./modules/module_aws_instance"
-  ami               = var.ami_requester_region  
-  instance_type     = var.instance_type
-  public_subnet_id  = module.requester_vpc.public_subnet_id
-  name              = var.requester_name_instance
-  parent_vpc_id     = module.requester_vpc.vpc_id
-  region = var.requester_region
+  source           = "./modules/module_aws_instance"
+  ami              = data.aws_ami.requester_ami_ubuntu.id
+  instance_type    = var.instance_type
+  public_subnet_id = module.requester_vpc.public_subnet_id
+  name             = var.requester_name_instance
+  parent_vpc_id    = module.requester_vpc.vpc_id
+  region           = var.requester_region
 }
 
 module "vpc-peering" {

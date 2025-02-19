@@ -57,7 +57,7 @@ variable "private_subnet_cidr_requester" {
 variable "ami_accepter_region" {
   description = "AMI ID for the accepter region"
   type        = string
-  default     = "ami-0e443b903466f6804" 
+  default     = "ami-0e443b903466f6804"
 }
 
 variable "ami_requester_region" {

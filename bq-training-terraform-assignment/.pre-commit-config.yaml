@@ -1,0 +1,9 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.97.3 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+      name: Terraform FMT
+      description: Ensures Terraform files are properly formatted
+      files: \.tf$
+    - id: terraform_docs

@@ -9,6 +9,6 @@ resource "aws_nat_gateway" "nat-01" {
   }
 }
 resource "aws_eip" "eip-01" {
-  domain = "vpc"
-  depends_on = [ aws_internet_gateway.gateway-01 ]
+  domain     = "vpc"
+  depends_on = [aws_internet_gateway.gateway-01]
 }
